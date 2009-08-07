@@ -1,0 +1,20 @@
+<h1>Editing booking</h1>
+
+<% form_for(@booking) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :arrival %><br />
+    <%= f.date_select :arrival, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
+  </p>
+  <p>
+    <%= f.label :departure %><br />
+    <%= f.date_select :departure, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @booking %> |
+<%= link_to 'Back', bookings_path %>

@@ -1,0 +1,52 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-08-07 14:47:21) [GET]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 136ms (View: 10, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (8.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (6.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBookings (20090807134934)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "bookings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "arrival" date, "departure" date, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090807134934')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("bookings")[0m
+
+
+Processing BookingsController#index (for 127.0.0.1 at 2009-08-07 14:50:41) [GET]
+  [4;35;1mBooking Load (0.4ms)[0m   [0mSELECT * FROM "bookings" [0m
+Rendering template within layouts/bookings
+Rendering bookings/index
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing BookingsController#new (for 127.0.0.1 at 2009-08-07 14:51:00) [GET]
+Rendering template within layouts/bookings
+Rendering bookings/new
+Completed in 85ms (View: 78, DB: 0) | 200 OK [http://localhost/bookings/new]
+
+
+Processing BookingsController#new (for 127.0.0.1 at 2009-08-07 14:51:56) [GET]
+Rendering template within layouts/bookings
+Rendering bookings/new
+Completed in 38ms (View: 21, DB: 0) | 200 OK [http://localhost/bookings/new]
