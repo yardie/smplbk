@@ -9,11 +9,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090807134934) do
+ActiveRecord::Schema.define(:version => 20090807142132) do
+
+  create_table "booking_items", :force => true do |t|
+    t.integer  "booking_id"
+    t.integer  "item_price_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bookings", :force => true do |t|
     t.date     "arrival"
     t.date     "departure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "priced_items", :force => true do |t|
+    t.string   "name"
+    t.integer  "item_type_id"
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

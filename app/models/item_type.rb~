@@ -1,5 +1,5 @@
 class ItemType < ActiveRecord::Base
 
   has_many :priced_items
-
+  
 end
