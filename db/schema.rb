@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20090807142132) do
   create_table "priced_items", :force => true do |t|
     t.string   "name"
     t.integer  "item_type_id"
-    t.decimal  "price"
+    t.decimal  "price",        :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

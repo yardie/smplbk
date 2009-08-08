@@ -1,0 +1,7 @@
+<h1>New item type</h1>
+
+<% form_for([:admin, @item_type]) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f, :button_text => "Create" } %>
+<% end %>
+
+<%= link_to 'Back', admin_item_types_path %>

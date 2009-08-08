@@ -5,11 +5,11 @@
 
   <p>
     <%= f.label :arrival %><br />
-    <%= f.date_select :arrival %>
+    <%= f.date_select :arrival, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
   </p>
   <p>
     <%= f.label :departure %><br />
-    <%= f.date_select :departure %>
+    <%= f.date_select :departure, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
   </p>
   <p>
     <%= f.submit 'Update' %>

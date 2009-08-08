@@ -1,0 +1,17 @@
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :item_type %><br />
+    <%= f.collection_select(:item_type_id, [:admin, @item_types], :id, :name) %>
+  </p>
+  <p>
+    <%= f.submit button_text %>
+  </p>

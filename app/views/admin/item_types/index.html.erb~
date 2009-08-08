@@ -1,0 +1,22 @@
+<h1>Item Types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Total</th>
+  </tr>
+
+<% @item_types.each do |item_type| %>
+  <tr>
+    <td><%=h item_type.name %></td>
+    <td><%=h item_type.total %></td>
+    <td><%= link_to 'Show', item_type_path(item_type) %></td>
+    <td><%= link_to 'Edit', edit_item_type_path(item_type) %></td>
+    <td><%= link_to 'Destroy', item_type_url(item_type), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item type', new_item_type_path %>

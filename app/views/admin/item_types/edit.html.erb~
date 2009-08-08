@@ -1,0 +1,8 @@
+<h1>Editing item type</h1>
+
+<% form_for([:admin, @item_type]) do |f| %>
+  <%= render :partial => :form, :local => { :f => f, :button_text => "Update" } %>
+<% end %>
+
+<%= link_to 'Show', admin_item_type_path(@item_type) %> |
+<%= link_to 'Back', admin_item_types_path %>

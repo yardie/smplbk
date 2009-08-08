@@ -1,0 +1,8 @@
+<h1>Editing priced item</h1>
+
+<% form_for([:admin, @priced_item]) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f, :button_text => "Update" } %>
+<% end %>
+
+<%= link_to 'Show', admin_priced_item_path(@item_type) %> |
+<%= link_to 'Back', admin_priced_items_path %>
