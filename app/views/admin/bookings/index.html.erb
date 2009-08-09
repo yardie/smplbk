@@ -1,0 +1,30 @@
+<h1>Listing bookings</h1>
+
+<table>
+  <tr>
+    <th>Arrival</th>
+    <th>Departure</th>
+    <th>Accommodation</th>
+  </tr>
+
+<% @bookings.each do |booking| %>
+  <tr>
+    <td><%= booking.arrival.strftime("%A,<br/>%d %b %y") %></td>
+    <td><%= booking.departure.strftime("%A,<br/>%d %b %y") %></td>
+    <td>
+    <ul>
+    <% booking.booking_items.sort_by(&:priced_item_id).each do |bi| %>
+    <li><%=h bi.quantity %> x <%=h bi.priced_item.name %></li>
+    <% end %>
+    </ul>
+    </td>
+    <td><%= link_to 'Show', booking %></td>
+    <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+    <td><%= link_to 'Destroy', booking, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New booking', new_booking_path %>

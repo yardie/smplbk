@@ -1,0 +1,12 @@
+<p>
+  <b>Booking id:</b>
+  <%=h @booking_item.id %>
+</p>
+
+<p>
+  <b>Priced Item:</b>
+  <%=h @booking_item.quantity %> x <%=h @booking_item.priced_item.name %>
+</p>
+
+<%= link_to 'Edit', [:edit, @booking, @booking_item] %> |
+<%= link_to 'Back', booings_bookings_path(@booking) %>

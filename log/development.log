@@ -10633,3 +10633,45 @@ Rendered bookings/_booking_item (3.3ms)
 Rendered bookings/_booking_item (1.4ms)
 Rendered bookings/_form (46.4ms)
 Completed in 83ms (View: 47, DB: 4) | 200 OK [http://localhost/bookings/new]
+
+
+Processing BookingsController#index (for 127.0.0.1 at 2009-08-09 18:47:23) [GET]
+  [4;35;1mBooking Load (1.0ms)[0m   [0mSELECT * FROM "bookings" [0m
+Rendering template within layouts/application
+Rendering bookings/index
+  [4;36;1mBookingItem Load (0.8ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;36;1mPricedItem Load (0.4ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;36;1mBookingItem Load (0.4ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;36;1mBookingItem Load (0.7ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 12) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;36;1mPricedItem Load (0.4ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 3) [0m
+  [4;35;1mBookingItem Load (0.5ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
+Completed in 133ms (View: 45, DB: 5) | 200 OK [http://localhost/bookings]
+
+
+Processing BookingsController#new (for 127.0.0.1 at 2009-08-09 18:48:00) [GET]
+  [4;36;1mPricedItem Load (1.3ms)[0m   [0;1mSELECT * FROM "priced_items" [0m
+Rendering template within layouts/application
+Rendering bookings/new
+  [4;35;1mBookingItem Load (0.2ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 1) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;36;1mItemType Load (0.3ms)[0m   [0;1mSELECT * FROM "item_types" WHERE ("item_types"."id" = 1) [0m
+Rendered bookings/_booking_item (8.8ms)
+  [4;35;1mBookingItem Load (0.2ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 2) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;36;1mItemType Load (0.3ms)[0m   [0;1mSELECT * FROM "item_types" WHERE ("item_types"."id" = 2) [0m
+Rendered bookings/_booking_item (2.9ms)
+  [4;35;1mBookingItem Load (0.2ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 3) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;36;1mItemType Load (0.3ms)[0m   [0;1mSELECT * FROM "item_types" WHERE ("item_types"."id" = 3) [0m
+Rendered bookings/_booking_item (3.1ms)
+  [4;35;1mBookingItem Load (0.2ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 4) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;36;1mItemType Load (0.3ms)[0m   [0;1mSELECT * FROM "item_types" WHERE ("item_types"."id" = 4) [0m
+Rendered bookings/_booking_item (2.9ms)
+  [4;35;1mBookingItem Load (0.2ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 5) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "item_types" WHERE ("item_types"."id" = 4) [0m
+Rendered bookings/_booking_item (1.3ms)
+Rendered bookings/_form (43.6ms)
+Completed in 79ms (View: 44, DB: 4) | 200 OK [http://localhost/bookings/new]

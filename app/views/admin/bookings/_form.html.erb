@@ -1,0 +1,20 @@
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :arrival %><br />
+    <%= f.date_select :arrival, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
+  </p>
+  <p>
+    <%= f.label :departure %><br />
+    <%= f.date_select :departure, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
+  </p>
+
+  <% @priced_items.each do |priced_item| %>
+    <% pass_coll = @booking.booking_items.find_by_priced_item_id(priced_item) %>
+    <% pass_coll ||= @booking.booking_items.build() %>
+    <%= render :partial => "booking_item", :locals => { :booking_item => pass_coll, :priced_item => priced_item }  %>
+  <% end %>
+
+  <p>
+    <%= f.submit button_text %>
+  </p>

@@ -1,0 +1,18 @@
+<% new_or_existing = booking_item.new_record? ? 'new' : 'existing' %>
+<% prefix = "booking[#{new_or_existing}_booking_item_attributes][]" %>
+
+<% fields_for prefix, booking_item do |bi_form| %>
+
+  <p>
+    <% if priced_item.item_type.total == 1 %>
+    <%= bi_form.check_box(:quantity, {}, 1, 0) %>
+    <% else %>
+    <%= bi_form.select(:quantity,(0..priced_item.item_type.total)) %> x
+    <%end %>
+    &nbsp;<%=h priced_item.name %>
+  </p>
+
+<!--// FIXME: must be a neater way to do this! inserting directly into bi_form instead of rendering to browser? !-->
+<%= bi_form.hidden_field :priced_item_id, :value => priced_item.id %>
+
+<% end %>

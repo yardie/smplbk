@@ -1,13 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :bookings, :has_many => :booking_items
+  map.resources :bookings
 
   #  map.with_options(:namespace => "admin/") do |admin|
   #    admin.resources :item_types, :priced_items
   #  end
 
    map.namespace :admin do |admin|
-     admin.resources :item_types, :priced_items
+     admin.resources :item_types, :priced_items, :bookings
    end
 
   map.root :controller => :bookings
