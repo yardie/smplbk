@@ -10947,3 +10947,257 @@ Rendering bookings/index
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
   [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
 Completed in 83ms (View: 50, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-09 19:58:02) [GET]
+
+ActionController::RoutingError (No route matches "/admin/users" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 19:58:28) [GET]
+
+NameError (uninitialized constant Admin::UsersController::Users):
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 19:58:49) [GET]
+  Parameters: {"id"=>"index"}
+
+NameError (undefined local variable or method `user' for #<Admin::UsersController:0xb702c094>):
+  app/controllers/admin/users_controller.rb:17:in `show'
+
+Rendered rescues/_trace (106.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-09 19:59:14) [GET]
+
+ActionController::RoutingError (No route matches "/admin/user" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:00:34) [GET]
+
+NameError (uninitialized constant Admin::UsersController::Users):
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:01:30) [GET]
+
+NameError (uninitialized constant Admin::UsersController::Users):
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (114.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:02:17) [GET]
+
+NameError (uninitialized constant Admin::UsersController::Users):
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (41.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:02:23) [GET]
+Rendering template within layouts/application
+Rendering admin/users/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #10 of app/views/admin/users/index.html.erb:
+7:     <th>Email</th>
+8:   </tr>
+9: 
+10: <% @users.each do |user| %>
+11:   <tr>
+12:     <td><%= user.firstname %> <%= user.surname %></td>
+13:     <td><%= user.login %></td>
+
+    app/views/admin/users/index.html.erb:10
+
+Rendered rescues/_trace (108.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:02:32) [GET]
+
+NameError (uninitialized constant Admin::UsersController::Users):
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (45.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:02:49) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+Completed in 156ms (View: 9, DB: 1) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#edit (for 127.0.0.1 at 2009-08-09 20:03:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/edit
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/admin/users/edit.html.erb:
+1: <h1>Editing booking</h1>
+2: 
+3: <% form_for([:admin, @booking]) do |f| %>
+4:   <%= render :partial => "form", :locals => { :f => f, :button_text => "Update" } %>
+5: <% end %>
+6: 
+
+    app/views/admin/users/edit.html.erb:3
+
+Rendered rescues/_trace (51.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#edit (for 127.0.0.1 at 2009-08-09 20:08:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/edit
+Rendered admin/users/_form (6.2ms)
+Completed in 93ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/users/1/edit]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:08:14) [GET]
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+Completed in 88ms (View: 7, DB: 1) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 20:08:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.arrival) on line #3 of app/views/admin/users/show.html.erb:
+1: <p>
+2:   <b>Arrival:</b>
+3:   <%=h @booking.arrival %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/admin/users/show.html.erb:3
+    app/controllers/admin/users_controller.rb:19:in `show'
+
+Rendered rescues/_trace (55.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:11:14) [GET]
+
+NoMethodError (undefined method `firstname_regex' for Authentication:Module):
+  app/models/user.rb:14
+  app/controllers/admin/users_controller.rb:6:in `index'
+
+Rendered rescues/_trace (110.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:13:01) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+Completed in 91ms (View: 8, DB: 1) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#edit (for 127.0.0.1 at 2009-08-09 20:13:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/edit
+Rendered admin/users/_form (4.7ms)
+Completed in 173ms (View: 8, DB: 1) | 200 OK [http://localhost/admin/users/1/edit]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:13:12) [GET]
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+Completed in 107ms (View: 15, DB: 2) | 200 OK [http://localhost/admin/users]
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 20:13:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.arrival) on line #3 of app/views/admin/users/show.html.erb:
+1: <p>
+2:   <b>Arrival:</b>
+3:   <%=h @booking.arrival %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/admin/users/show.html.erb:3
+    app/controllers/admin/users_controller.rb:19:in `show'
+
+Rendered rescues/_trace (56.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 20:16:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/show
+Completed in 140ms (View: 20, DB: 2) | 200 OK [http://localhost/admin/users/1]
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 20:16:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/show
+Completed in 78ms (View: 7, DB: 0) | 200 OK [http://localhost/admin/users/1]
+
+
+Processing Admin::UsersController#show (for 127.0.0.1 at 2009-08-09 20:16:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering admin/users/show
+Completed in 80ms (View: 8, DB: 0) | 200 OK [http://localhost/admin/users/1]
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-09 20:17:02) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+Completed in 79ms (View: 8, DB: 1) | 200 OK [http://localhost/admin/users]
