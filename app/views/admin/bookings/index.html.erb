@@ -18,13 +18,13 @@
     <% end %>
     </ul>
     </td>
-    <td><%= link_to 'Show', booking %></td>
-    <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-    <td><%= link_to 'Destroy', booking, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_booking_path(booking) %></td>
+    <td><%= link_to 'Edit', edit_admin_booking_path(booking) %></td>
+    <td><%= link_to 'Destroy', admin_booking_url(booking), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New booking', new_booking_path %>
+<%= link_to 'New booking', new_admin_booking_path %>

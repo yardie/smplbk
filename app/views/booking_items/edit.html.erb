@@ -1,8 +1,0 @@
-<h1>Editing booking item</h1>
-
-<% form_for([@booking, @booking_item]) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f, :button_text => "Update" } %>
-<% end %>
-
-<%= link_to 'Show', [@booking, @booking_item] %> |
-<%= link_to 'Back', booking_booking_items_path %>

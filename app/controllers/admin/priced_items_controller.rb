@@ -1,5 +1,7 @@
 class Admin::PricedItemsController < ApplicationController
 
+  before_filter :find_priced_items, :only => [:new, :edit, :create, :update]
+
   # GET /admin/priced_items
   # GET /admin/priced_items.xml
   def index
@@ -26,7 +28,6 @@ class Admin::PricedItemsController < ApplicationController
   # GET /admin/priced_items/new.xml
   def new
     @priced_item = PricedItem.new
-    find_item_types
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,14 +38,12 @@ class Admin::PricedItemsController < ApplicationController
   # GET /admin/priced_items/1/edit
   def edit
     @priced_item = PricedItem.find(params[:id])
-    find_item_types
   end
 
   # POST /admin/priced_items
   # POST /admin/priced_items.xml
   def create
     @priced_item = PricedItem.new(params[:priced_item])
-    find_item_types
 
     respond_to do |format|
       if @priced_item.save
@@ -62,7 +61,6 @@ class Admin::PricedItemsController < ApplicationController
   # PUT /admin/priced_items/1.xml
   def update
     @priced_item = PricedItem.find(params[:id])
-    find_item_types
 
     respond_to do |format|
       if @priced_item.update_attributes(params[:priced_item])

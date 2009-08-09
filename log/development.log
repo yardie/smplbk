@@ -10675,3 +10675,92 @@ Rendered bookings/_booking_item (2.9ms)
 Rendered bookings/_booking_item (1.3ms)
 Rendered bookings/_form (43.6ms)
 Completed in 79ms (View: 44, DB: 4) | 200 OK [http://localhost/bookings/new]
+
+
+Processing Admin::BookingsController#index (for 127.0.0.1 at 2009-08-09 19:02:56) [GET]
+  [4;35;1mBooking Load (1.0ms)[0m   [0mSELECT * FROM "bookings" [0m
+Rendering template within layouts/application
+Rendering admin/bookings/index
+  [4;36;1mBookingItem Load (0.6ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;36;1mPricedItem Load (0.4ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+
+ActionView::TemplateError (undefined method `admin_booking' for #<ActionView::Base:0xb719e800>) on line #23 of app/views/admin/bookings/index.html.erb:
+20:     </td>
+21:     <td><%= link_to 'Show', admin_booking_path(booking) %></td>
+22:     <td><%= link_to 'Edit', edit_admin_booking_path(booking) %></td>
+23:     <td><%= link_to 'Destroy', admin_booking(booking), :confirm => 'Are you sure?', :method => :delete %></td>
+24:   </tr>
+25: <% end %>
+26: </table>
+
+    app/views/admin/bookings/index.html.erb:23
+    app/views/admin/bookings/index.html.erb:10:in `each'
+    app/views/admin/bookings/index.html.erb:10
+    app/controllers/admin/bookings_controller.rb:11:in `index'
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::BookingsController#index (for 127.0.0.1 at 2009-08-09 19:03:26) [GET]
+  [4;36;1mBooking Load (2.0ms)[0m   [0;1mSELECT * FROM "bookings" [0m
+Rendering template within layouts/application
+Rendering admin/bookings/index
+  [4;35;1mBookingItem Load (2.1ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.3ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.5ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 3) [0m
+  [4;36;1mBookingItem Load (0.5ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
+Completed in 180ms (View: 141, DB: 7) | 200 OK [http://localhost/admin/bookings]
+
+
+Processing Admin::BookingsController#new (for 127.0.0.1 at 2009-08-09 19:08:07) [GET]
+  [4;35;1mPricedItem Load (2.7ms)[0m   [0mSELECT * FROM "priced_items" [0m
+Rendering template within layouts/application
+Rendering admin/bookings/new
+  [4;36;1mBookingItem Load (0.2ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 1) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;35;1mItemType Load (0.3ms)[0m   [0mSELECT * FROM "item_types" WHERE ("item_types"."id" = 1) [0m
+Rendered admin/bookings/_booking_item (9.9ms)
+  [4;36;1mBookingItem Load (0.2ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 2) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;35;1mItemType Load (0.3ms)[0m   [0mSELECT * FROM "item_types" WHERE ("item_types"."id" = 2) [0m
+Rendered admin/bookings/_booking_item (2.8ms)
+  [4;36;1mBookingItem Load (0.2ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 3) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;35;1mItemType Load (0.5ms)[0m   [0mSELECT * FROM "item_types" WHERE ("item_types"."id" = 3) [0m
+Rendered admin/bookings/_booking_item (3.3ms)
+  [4;36;1mBookingItem Load (0.2ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 4) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;35;1mItemType Load (0.3ms)[0m   [0mSELECT * FROM "item_types" WHERE ("item_types"."id" = 4) [0m
+Rendered admin/bookings/_booking_item (3.0ms)
+  [4;36;1mBookingItem Load (0.2ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items"."priced_item_id" = 5) AND ("booking_items".booking_id = NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "item_types" WHERE ("item_types"."id" = 4) [0m
+Rendered admin/bookings/_booking_item (1.1ms)
+Rendered admin/bookings/_form (48.6ms)
+Completed in 186ms (View: 57, DB: 5) | 200 OK [http://localhost/admin/bookings/new]
+
+
+Processing Admin::BookingsController#index (for 127.0.0.1 at 2009-08-09 19:08:10) [GET]
+  [4;36;1mBooking Load (2.3ms)[0m   [0;1mSELECT * FROM "bookings" [0m
+Rendering template within layouts/application
+Rendering admin/bookings/index
+  [4;35;1mBookingItem Load (1.4ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;36;1mPricedItem Load (0.8ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.9ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.8ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.8ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.4ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 3) [0m
+  [4;36;1mBookingItem Load (0.5ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
+Completed in 127ms (View: 85, DB: 9) | 200 OK [http://localhost/admin/bookings]

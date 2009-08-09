@@ -1,8 +1,8 @@
 <h1>Editing booking</h1>
 
-<% form_for(@booking) do |f| %>
+<% form_for([:admin, @booking]) do |f| %>
   <%= render :partial => "form", :locals => { :f => f, :button_text => "Update" } %>
 <% end %>
 
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Show', admin_booking_path(@booking) %> |
+<%= link_to 'Back', admin_bookings_path %>
