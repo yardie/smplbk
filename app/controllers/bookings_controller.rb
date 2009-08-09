@@ -25,6 +25,8 @@ class BookingsController < ApplicationController
   # GET /bookings/new.xml
   def new
     @booking = Booking.new
+    @booking.booking_items.build
+    find_priced_items()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1/edit
   def edit
     @booking = Booking.find(params[:id])
+    find_priced_items()
   end
 
   # POST /bookings
@@ -58,6 +61,7 @@ class BookingsController < ApplicationController
   # PUT /bookings/1.xml
   def update
     @booking = Booking.find(params[:id])
+    params[:booking][:existing_booking_item_attributes] ||= {}
 
     respond_to do |format|
       if @booking.update_attributes(params[:booking])

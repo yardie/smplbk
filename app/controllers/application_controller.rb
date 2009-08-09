@@ -7,9 +7,14 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  
+
   def find_item_types
     @item_types ||= ItemType.find(:all)
   end
 
+  def find_priced_items(options={})
+    @priced_items ||= PricedItem.find(:all, options)
+  end
+
 end
+

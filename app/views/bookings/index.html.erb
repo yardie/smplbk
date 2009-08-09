@@ -4,12 +4,20 @@
   <tr>
     <th>Arrival</th>
     <th>Departure</th>
+    <th>Accommodation</th>
   </tr>
 
 <% @bookings.each do |booking| %>
   <tr>
     <td><%=h booking.arrival %></td>
     <td><%=h booking.departure %></td>
+    <td>
+    <ul>
+    <% booking.booking_items.each do |bi| %>
+    <li><%=h bi.quantity %> x <%=h bi.priced_item.name %></li>
+    <% end %>
+    </ul>
+    </td>
     <td><%= link_to 'Show', booking %></td>
     <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
     <td><%= link_to 'Destroy', booking, :confirm => 'Are you sure?', :method => :delete %></td>

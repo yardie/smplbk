@@ -8,6 +8,15 @@
   <%=h @booking.departure %>
 </p>
 
+<p>
+  <b>Accommodation:</b>
+  <ul>
+  <% @booking.booking_items.each do |bi| %>
+    <li><%=h bi.quantity %> x <%=h bi.priced_item.name %></li>
+  <% end %>
+  </ul>
+</p>
+
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>

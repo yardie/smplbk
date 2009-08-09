@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :bookings
+  map.resources :bookings, :has_many => :booking_items
 
   #  map.with_options(:namespace => "admin/") do |admin|
   #    admin.resources :item_types, :priced_items
-  #  end 
-  
+  #  end
+
    map.namespace :admin do |admin|
      admin.resources :item_types, :priced_items
    end
@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

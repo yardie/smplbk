@@ -4,12 +4,14 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Type</th>
   </tr>
 
 <% @priced_items.each do |priced_item| %>
   <tr>
     <td><%=h priced_item.name %></td>
     <td><%=h number_to_currency(priced_item.price, :unit => "£") %></td>
+    <td><%=h priced_item.item_type.name %></td>
     <td><%= link_to 'Show', admin_priced_item_path(priced_item) %></td>
     <td><%= link_to 'Edit', edit_admin_priced_item_path(priced_item) %></td>
     <td><%= link_to 'Destroy', admin_priced_item_url(priced_item), :confirm => 'Are you sure?', :method => :delete %></td>

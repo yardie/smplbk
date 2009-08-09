@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 20090807142132) do
 
   create_table "booking_items", :force => true do |t|
     t.integer  "booking_id"
-    t.integer  "item_price_id"
+    t.integer  "priced_item_id"
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
