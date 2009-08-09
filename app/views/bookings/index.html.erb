@@ -9,11 +9,11 @@
 
 <% @bookings.each do |booking| %>
   <tr>
-    <td><%=h booking.arrival %></td>
-    <td><%=h booking.departure %></td>
+    <td><%= booking.arrival.strftime("%A,<br/>%d %b %y") %></td>
+    <td><%= booking.departure.strftime("%A,<br/>%d %b %y") %></td>
     <td>
     <ul>
-    <% booking.booking_items.each do |bi| %>
+    <% booking.booking_items.sort_by(&:priced_item_id).each do |bi| %>
     <li><%=h bi.quantity %> x <%=h bi.priced_item.name %></li>
     <% end %>
     </ul>

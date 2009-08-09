@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+
+  before_filter :find_priced_items, :only => [:new, :edit, :create, :update]
+
+
   # GET /bookings
   # GET /bookings.xml
   def index
@@ -26,7 +30,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @booking.booking_items.build
-    find_priced_items()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +40,14 @@ class BookingsController < ApplicationController
   # GET /bookings/1/edit
   def edit
     @booking = Booking.find(params[:id])
-    find_priced_items()
   end
 
   # POST /bookings
   # POST /bookings.xml
   def create
     @booking = Booking.new(params[:booking])
+
+    # FIXME: booking items get lost when validation errors are present on a new booking - doesn't seem to happen with update
 
     respond_to do |format|
       if @booking.save

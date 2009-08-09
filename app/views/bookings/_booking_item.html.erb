@@ -4,7 +4,12 @@
 <% fields_for prefix, booking_item do |bi_form| %>
 
   <p>
-    <%= bi_form.select(:quantity,(0..priced_item.item_type.total)) %> x <%=h priced_item.name %>
+    <% if priced_item.item_type.total == 1 %>
+    <%= bi_form.check_box(:quantity, {}, 1, 0) %>
+    <% else %>
+    <%= bi_form.select(:quantity,(0..priced_item.item_type.total)) %> x
+    <%end %>
+    &nbsp;<%=h priced_item.name %>
   </p>
 
 <!--// FIXME: must be a neater way to do this! inserting directly into bi_form instead of rendering to browser? !-->
