@@ -4,6 +4,7 @@ class Admin::BookingsController < ApplicationController
 
   before_filter :login_required
 
+  require_role "admin"
 
   # GET /bookings
   # GET /bookings.xml

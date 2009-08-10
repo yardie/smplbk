@@ -13722,3 +13722,168 @@ Rendering admin/bookings/index
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
 Rendered _notice_area (2.0ms)
 Completed in 298ms (View: 136, DB: 14) | 200 OK [http://localhost/admin/bookings]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBookings (20090807134934)
+Migrating to CreateBookingItems (20090807141237)
+Migrating to CreatePricedItems (20090807141552)
+Migrating to CreateItemTypes (20090807142132)
+Migrating to AddUserIdToBooking (20090809192253)
+Migrating to CreateUsers (20090810113938)
+Migrating to CreateRoles (20090810133922)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "roles_users" ("role_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_roles_users_on_role_id" ON "roles_users" ("role_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_roles_users_on_user_id" ON "roles_users" ("user_id")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090810133922')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("booking_items")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("bookings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("item_types")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("priced_items")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("roles")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("roles_users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_roles_users_on_user_id')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_roles_users_on_role_id')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing Admin::BookingsController#index (for 127.0.0.1 at 2009-08-10 14:48:23) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 2 ) [0m
+Filter chain halted as [:check_roles] rendered_or_redirected.
+Completed in 43ms (View: 1, DB: 1) | 401 Unauthorized [http://localhost/admin/bookings]
+
+
+Processing BookingsController#index (for 127.0.0.1 at 2009-08-10 14:48:39) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering bookings/index
+  [4;36;1mBooking Load (0.4ms)[0m   [0;1mSELECT * FROM "bookings" WHERE ("bookings".user_id = 2) [0m
+  [4;35;1mBookingItem Load (0.5ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 16) [0m
+  [4;36;1mPricedItem Load (0.4ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+Rendered _notice_area (0.5ms)
+Completed in 131ms (View: 29, DB: 2) | 200 OK [http://localhost/bookings]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-08-10 14:48:42) [GET]
+Redirected to http://localhost:3000/
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing BookingsController#index (for 127.0.0.1 at 2009-08-10 14:48:42) [GET]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 4ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-08-10 14:48:42) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered _notice_area (2.3ms)
+Completed in 40ms (View: 10, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-08-10 14:48:50) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"Tf6Wq+kRuzR7qJ5Xcs8Cl2y0jGiaf+CHx/+Bfqo53Yo=", "login"=>"bootsa", "password"=>"cuthbert"}
+  [4;35;1mUser Load (6.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'bootsa') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 75ms (DB: 6) | 302 Found [http://localhost/session]
+
+
+Processing BookingsController#index (for 127.0.0.1 at 2009-08-10 14:48:50) [GET]
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering bookings/index
+  [4;36;1mBooking Load (0.7ms)[0m   [0;1mSELECT * FROM "bookings" WHERE ("bookings".user_id = 1) [0m
+  [4;35;1mBookingItem Load (0.6ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.4ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.4ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mBookingItem Load (0.4ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 3) [0m
+  [4;36;1mBookingItem Load (0.4ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
+Rendered _notice_area (1.1ms)
+Completed in 89ms (View: 46, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing Admin::BookingsController#index (for 127.0.0.1 at 2009-08-10 14:49:05) [GET]
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mBooking Load (0.8ms)[0m   [0mSELECT * FROM "bookings" [0m
+Rendering template within layouts/application
+Rendering admin/bookings/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBookingItem Load (0.6ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 9) [0m
+  [4;36;1mPricedItem Load (0.5ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.4ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;36;1mPricedItem Load (0.3ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBookingItem Load (0.3ms)[0m   [0;1mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBookingItem Load (0.5ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 1) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBookingItem Load (0.6ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+  [4;35;1mPricedItem Load (0.3ms)[0m   [0mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 4) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mBookingItem Load (0.3ms)[0m   [0mSELECT * FROM "booking_items" WHERE ("booking_items".booking_id = 16) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "priced_items" WHERE ("priced_items"."id" = 2) [0m
+Rendered _notice_area (0.5ms)
+Completed in 175ms (View: 58, DB: 7) | 200 OK [http://localhost/admin/bookings]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-10 14:49:38) [GET]
+
+ActionController::RoutingError (No route matches "/admin/user" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2009-08-10 14:49:42) [GET]
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering admin/users/index
+
+ActionView::TemplateError (undefined method `firstname' for #<User:0xb6f0f1ac>) on line #12 of app/views/admin/users/index.html.erb:
+9: 
+10: <% @users.each do |user| %>
+11:   <tr>
+12:     <td><%= user.firstname %> <%= user.surname %></td>
+13:     <td><%= user.login %></td>
+14:     <td><%= user.email %></td>
+15:     <td><%= link_to 'Show', admin_user_path(user) %></td>
+
+    app/views/admin/users/index.html.erb:12
+    app/views/admin/users/index.html.erb:10:in `each'
+    app/views/admin/users/index.html.erb:10
+    app/controllers/admin/users_controller.rb:12:in `index'
+
+Rendered rescues/_trace (61.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
