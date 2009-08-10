@@ -2,7 +2,7 @@
 
   <p>
     <%= f.label :user_id %><br />
-    <%= f.collection_select(:user_id, User.find(:all, :order => 'login ASC'), :id, :login) %>
+    <%= f.collection_select(:user_id, User.find(:all, :order => 'surname ASC'), :id, :surname_first_and_login) %>
   </p>
 
   <p>

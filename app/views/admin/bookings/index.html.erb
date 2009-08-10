@@ -10,7 +10,7 @@
 
 <% @bookings.each do |booking| %>
   <tr style="vertical-align:top">
-    <td><%= booking.user.login %></td>
+    <td><%= booking.user.fullname %><br/>(<%= booking.user.login %>)</td>
     <td><%= booking.arrival.strftime("%A,<br/>%d %b %y") %></td>
     <td><%= booking.departure.strftime("%A,<br/>%d %b %y") %></td>
     <td>
