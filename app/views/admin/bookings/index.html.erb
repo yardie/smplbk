@@ -2,20 +2,22 @@
 
 <table>
   <tr>
+    <th>User</th>
     <th>Arrival</th>
     <th>Departure</th>
     <th>Accommodation</th>
   </tr>
 
 <% @bookings.each do |booking| %>
-  <tr>
+  <tr style="vertical-align:top">
+    <td><%= booking.user.login %></td>
     <td><%= booking.arrival.strftime("%A,<br/>%d %b %y") %></td>
     <td><%= booking.departure.strftime("%A,<br/>%d %b %y") %></td>
     <td>
     <ul>
-    <% booking.booking_items.sort_by(&:priced_item_id).each do |bi| %>
+    <% booking.booking_items.sort_by(&:priced_item_id).each do |bi| -%>
     <li><%=h bi.quantity %> x <%=h bi.priced_item.name %></li>
-    <% end %>
+    <% end -%>
     </ul>
     </td>
     <td><%= link_to 'Show', admin_booking_path(booking) %></td>

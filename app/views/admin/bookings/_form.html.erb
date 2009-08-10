@@ -1,6 +1,11 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :user_id %><br />
+    <%= f.collection_select(:user_id, User.find(:all, :order => 'login ASC'), :id, :login) %>
+  </p>
+
+  <p>
     <%= f.label :arrival %><br />
     <%= f.date_select :arrival, :order => [:day,:month,:year], :start_year => Date.today.year, :end_year => Date.today.year + 3 %>
   </p>

@@ -1,5 +1,7 @@
 class Admin::ItemTypesController < ApplicationController
 
+  before_filter :login_required
+
   # GET /admin/item_types
   # GET /admin/item_types.xml
   def index

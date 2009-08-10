@@ -2,11 +2,13 @@ class BookingsController < ApplicationController
 
   before_filter :find_priced_items, :only => [:new, :edit, :create, :update]
 
+  before_filter :login_required, :except => :new
+
 
   # GET /bookings
   # GET /bookings.xml
   def index
-    @bookings = Booking.all
+    @bookings = User.find(current_user).bookings
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +48,7 @@ class BookingsController < ApplicationController
   # POST /bookings.xml
   def create
     @booking = Booking.new(params[:booking])
+    @booking.user = current_user
 
     # FIXME: booking items get lost when validation errors are present on a new booking - doesn't seem to happen with update
 

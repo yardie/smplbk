@@ -2,6 +2,9 @@ class Admin::PricedItemsController < ApplicationController
 
   before_filter :find_priced_items, :only => [:new, :edit, :create, :update]
 
+  before_filter :login_required
+
+
   # GET /admin/priced_items
   # GET /admin/priced_items.xml
   def index

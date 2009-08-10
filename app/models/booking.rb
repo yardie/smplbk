@@ -1,5 +1,6 @@
 class Booking < ActiveRecord::Base
 
+  belongs_to :user
   has_many :booking_items
 
   validate :arrival_must_not_be_earlier_than_today

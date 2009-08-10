@@ -2,6 +2,8 @@ class Admin::BookingsController < ApplicationController
 
   before_filter :find_priced_items, :only => [:new, :edit, :create, :update]
 
+  before_filter :login_required
+
 
   # GET /bookings
   # GET /bookings.xml
